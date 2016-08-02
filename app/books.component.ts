@@ -3,15 +3,17 @@ import { Component } from 'angular2/core';
 @Component({
 	selector: 'books',
 	template: `
-		<input type="text" [(ngModel)]="title">
-		{{ title }}
+		<h1>{{ title }}</h1>
+		<input type="text" [(ngModel)]="desc">
+		{{ desc }}
 		<button class="btn btn-primary" (click)="onClick($event)">Clear!</button>
 	`
 })
 export class BooksComponent {
-	title = "harry potter";
+	title = "Books"
+	desc = "harry potter";
 	onClick($event){
 		console.log("clicked!");
-		this.title = '';
+		this.desc = '';
 	}
 }

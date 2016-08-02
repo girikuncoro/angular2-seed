@@ -11,33 +11,32 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var BooksComponent;
+    var StarComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            BooksComponent = (function () {
-                function BooksComponent() {
-                    this.title = "Books";
-                    this.desc = "harry potter";
+            StarComponent = (function () {
+                function StarComponent() {
+                    this.title = "Stars";
+                    this.isEmpty = false;
                 }
-                BooksComponent.prototype.onClick = function ($event) {
-                    console.log("clicked!");
-                    this.desc = '';
+                StarComponent.prototype.onClick = function () {
+                    this.isEmpty = !this.isEmpty;
                 };
-                BooksComponent = __decorate([
+                StarComponent = __decorate([
                     core_1.Component({
-                        selector: 'books',
-                        template: "\n\t\t<h1>{{ title }}</h1>\n\t\t<input type=\"text\" [(ngModel)]=\"desc\">\n\t\t{{ desc }}\n\t\t<button class=\"btn btn-primary\" (click)=\"onClick($event)\">Clear!</button>\n\t"
+                        selector: 'stars',
+                        template: "\n\t\t<h1>{{ title }}</h1>\n\t\t<i \n\t\t\tclass=\"glyphicon\" \n\t\t\tstyle=\"font-size: 30px;\" \n\t\t\t[class.glyphicon-star-empty]=\"isEmpty\" \n\t\t\t[class.glyphicon-star]=\"!isEmpty\" \n\t\t\t(click)=\"onClick()\">\n\t\t</i>\n\t"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], BooksComponent);
-                return BooksComponent;
+                ], StarComponent);
+                return StarComponent;
             }());
-            exports_1("BooksComponent", BooksComponent);
+            exports_1("StarComponent", StarComponent);
         }
     }
 });
-//# sourceMappingURL=books.component.js.map
+//# sourceMappingURL=star.component.js.map
